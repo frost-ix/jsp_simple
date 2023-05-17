@@ -5,9 +5,7 @@ import common.JDBConnect;
 import javax.servlet.ServletContext;
 
 public class accountDAO extends JDBConnect {
-	public accountDAO(ServletContext application) {
-		super(application);
-	}
+
 
 	public accountDTO getAccountDTO(String uid, String upwd) {
 		accountDTO dto = new accountDTO();
