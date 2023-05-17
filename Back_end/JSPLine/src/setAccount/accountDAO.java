@@ -1,4 +1,6 @@
+package setAccount;
 
+import common.JDBConnect;
 
 public class accountDAO extends JDBConnect {
 	public accountDAO(String drv, String url, String id, String pwd) {
@@ -7,7 +9,7 @@ public class accountDAO extends JDBConnect {
 
 	public accountDTO getAccountDTO(String uid, String upwd) {
 		accountDTO dto = new accountDTO();
-		String query = "select * from acct where ID=? and PW=?";
+		String query = "select * from ACCNT where ID=? and PW=?";
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, uid);
@@ -15,11 +17,11 @@ public class accountDAO extends JDBConnect {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				dto.setId(rs.getString("ID"));
-				dto.setPw(rs.getString("PW"));
+				dto.setPwd(rs.getString("PW"));
 				dto.setName(rs.getString("NAME"));
-				dto.setAccpw(res.getString("ACCPW"));
-				dto.setAccount(res.getString("Account"));
-				dto.setMoney(res.getString("MONEY"));
+				dto.setAccPwd(rs.getString("ACCPW"));
+				dto.setAccount(rs.getString("Account"));
+				dto.setMoney(rs.getString("MONEY"));
 			}
 		} catch (Exception e) {
 			System.out.println("Exception [Get Account DTO] : " + e.getMessage());
