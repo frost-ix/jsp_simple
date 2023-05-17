@@ -2,9 +2,11 @@ package setAccount;
 
 import common.JDBConnect;
 
+import javax.servlet.ServletContext;
+
 public class accountDAO extends JDBConnect {
-	public accountDAO(String drv, String url, String id, String pwd) {
-		super(drv, url, id, pwd);
+	public accountDAO(ServletContext application) {
+		super(application);
 	}
 
 	public accountDTO getAccountDTO(String uid, String upwd) {
