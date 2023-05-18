@@ -9,6 +9,13 @@ public class accountDAO extends JDBConnect {
 		super(application);
 	}
 
+//	createDTO --> 생성 할 계정의 아이디가 중복 일 경우 Denied 처리 할 영역
+//	cId : 생성 할 아이디
+	public accountDTO createDTO(String cId) {
+		accountDTO dto = new accountDTO();
+		return dto;
+	}
+
 	public accountDTO getAccountDTO(String uid, String upwd) {
 		accountDTO dto = new accountDTO();
 		String query = "select * from ACCNT where ID=? and PW=?";

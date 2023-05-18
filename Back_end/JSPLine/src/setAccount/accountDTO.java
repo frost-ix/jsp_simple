@@ -1,35 +1,35 @@
 package setAccount;
 
 public class accountDTO {
-	private String name;
-	private String id;
-	private String pwd;
+	private static String name;
+	private static String id;
+	private static String pwd;
 	private String accPwd;
 	private String account;
 	private String money;
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		accountDTO.name = name;
 	}
 
-	public String getId() {
+	public static String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		accountDTO.id = id;
 	}
 
-	public String getPwd() {
+	public static String getPwd() {
 		return pwd;
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		accountDTO.pwd = pwd;
 	}
 
 	public String getAccPwd() {
