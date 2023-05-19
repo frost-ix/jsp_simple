@@ -8,7 +8,7 @@ public class JDBConnect {
 	public Statement stmt;
 	public PreparedStatement pstmt;
 	public ResultSet rs;
-
+	public JDBConnect() {};
 	public JDBConnect(ServletContext application) {
         try {
             // JDBC 드라이버 로드
@@ -24,6 +24,7 @@ public class JDBConnect {
             System.out.println("DB connect Clear)");
         }
         catch (Exception e) {
+			System.out.println("Exception of Connect Error. : "+e.getMessage());
             e.printStackTrace();
         }
     }

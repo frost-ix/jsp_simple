@@ -13,6 +13,14 @@ public class accountDAO extends JDBConnect {
 //	cId : 생성 할 아이디
 	public accountDTO createDTO(String cId) {
 		accountDTO dto = new accountDTO();
+		String query = "insert into ACCNT (name, id, pw, accpw, account, money) ";
+		query+="values(?, ?, ?, ?, ?, ?)";
+		try {
+			pstmt = con.prepareStatement(query);
+		} catch (Exception e) {
+			System.out.println("Exception [Get Account DTO] : " + e.getMessage());
+			e.printStackTrace();
+		}
 		return dto;
 	}
 

@@ -38,6 +38,7 @@
 		case 2: {
 			session.setAttribute("UserId", accountDTO.getId());
 			session.setAttribute("UserName", accountDTO.getName());
+//			Send to main page
 			response.sendRedirect("LoginForm.jsp");
 			break;
 		}
