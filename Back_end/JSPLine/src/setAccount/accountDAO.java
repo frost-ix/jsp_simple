@@ -5,12 +5,14 @@ import common.JDBConnect;
 import javax.servlet.ServletContext;
 
 public class accountDAO extends JDBConnect {
+	public accountDAO(String drv, String url, String id, String pw) {
+		super(drv, url, id, pw);
+	}
 	public accountDAO(ServletContext application) {
 		super(application);
 	}
 
 //	createDTO --> 생성 할 계정의 아이디가 중복 일 경우 Denied 처리 할 영역
-//	cId : 생성 할 아이디
 	public int createDTO(accountDTO dto) {
 		int result = 0;
 		String query = "insert into ACCNT (name, id, pw, accpw, account, money) ";
@@ -38,7 +40,7 @@ public class accountDAO extends JDBConnect {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, uid);
-			pstmt.setString(2, upwd);
+			pstmt.setString(2, upwd);성
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				dto.setId(rs.getString("ID"));
