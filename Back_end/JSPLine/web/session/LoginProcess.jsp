@@ -12,7 +12,7 @@
 //    String oraclePwd = application.getInitParameter("OraclePwd");
 
     accountDAO dao = new accountDAO(application);
-    accountDTO memberDTO = dao.getAccountDTO(userID, userPW);
+    accountDTO accountDTO = dao.getAccountDTO(userID, userPW);
     dao.close();
 
 	int flagPoint = 0;
