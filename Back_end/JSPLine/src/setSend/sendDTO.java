@@ -4,7 +4,7 @@ public class sendDTO{
 
     private String sendname;    //송금자 이름    
     private String recvname;    //수신자 이름
-    private String money;       //잔액
+    private String money;       //송금액
     private String senddate;    //송금날짜
     
 }
