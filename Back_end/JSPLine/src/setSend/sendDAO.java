@@ -7,10 +7,6 @@ import java.time.format.DateTimeFormatter;
 
 
 public class sendDAO extends JDBConnect {
-
-    public sendDAO(String drv, String url, String id, String pw) {
-		super(drv, url, id, pw);
-	}
 	public sendDAO(ServletContext application) {
 		super(application);
 	}
@@ -54,7 +50,7 @@ public class sendDAO extends JDBConnect {
         try {
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, dto.getSendName());
-            ResultSet rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
             if(rs.next()) {
                 int balance = rs.getInt("money"); // balance :  송금자의 계좌 잔액
@@ -80,7 +76,7 @@ public class sendDAO extends JDBConnect {
         try{
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, dto.getRecvName());
-            ResultSet rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
             if(rs.next()){
                 String receiver = rs.getString("recvname");
@@ -149,7 +145,7 @@ public class sendDAO extends JDBConnect {
     try{
         pstmt = con.prepareStatement(query);
         pstmt.setString(1, dto.getSendName());
-        ResultSet rs = pstmt.executeQuery();
+        rs = pstmt.executeQuery();
 
         if(rs.next()) {
             int balance = rs.getInt("money");

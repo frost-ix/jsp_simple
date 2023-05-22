@@ -21,7 +21,7 @@ public class DBConnPool {
 //            con = DriverManager.getConnection(url, ID, passwd);
             Context initCtx = new InitialContext();
             Context ctx = (Context)initCtx.lookup("java:comp/env");
-            DataSource source = (DataSource)ctx.lookup("dbcp_myoracle");
+            DataSource source = (DataSource)ctx.lookup("jdbc/orcl");
             con = source.getConnection();
             System.out.println("DB Connect clear <DB conn Pool> (first default initialize)");
         }

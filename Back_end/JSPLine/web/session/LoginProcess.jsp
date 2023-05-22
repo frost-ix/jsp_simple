@@ -5,29 +5,29 @@
 <%
 	String userID = request.getParameter("id");
 	String userPW = request.getParameter("pw");
-	
-    String oracleDriver = application.getInitParameter("OracleDriver");
-    String oracleURL = application.getInitParameter("OracleURL");
-    String oracleID = application.getInitParameter("OracleID");
-    String oraclePwd = application.getInitParameter("OraclePwd");
+	System.out.println(userID + " : " + userPW);
 
-    accountDAO dao = new accountDAO(oracleDriver, oracleURL, oracleID, oraclePwd);
-    accountDTO accountDTO = dao.getAccountDTO(userID, userPW);
+    accountDAO dao = new accountDAO(application);
+    accountDTO dto = dao.getAccountDTO(userID, userPW);
     dao.close();
 
 	int flagPoint = 0;
 
-	boolean isNotnull_Id = (accountDTO.getId() != null);
-	boolean isNotnull_Pw = (accountDTO.getPwd() != null);
+	session.setAttribute("Flag", flagPoint);
 
-    if (isNotnull_Id) {
-		if (isNotnull_Pw) {
+	boolean isNotnull_Id = dto.getId() != null;
+	boolean isNotnull_Pw = dto.getPwd() != null;
+
+    if (isNotnull_Id && dto.getId().equals(userID)) {
+		if (isNotnull_Pw && dto.getPwd().equals(userPW)) {
 			flagPoint = 2;
 		}
-		else {
+		else if (isNotnull_Pw && !dto.getPwd().equals(userPW)) {
 			flagPoint = 1;
 		}
     }
+
+	System.out.println(flagPoint);
 
 	switch (flagPoint) {
 		case 1: {
@@ -36,14 +36,19 @@
 			break;
 		}
 		case 2: {
-			session.setAttribute("UserId", accountDTO.getId());
-			session.setAttribute("UserName", accountDTO.getName());
+			session.setAttribute("UserName", dto.getName());
+			session.setAttribute("UserId", dto.getId());
+			session.setAttribute("UserPwd", dto.getPwd());
+			session.setAttribute("UserAccPwd", dto.getAccPwd());
+			session.setAttribute("UserAccount", dto.getAccount());
+			session.setAttribute("UserMoney", dto.getMoney());
+			session.setAttribute("Flag", flagPoint);
 //			Send to main page
 			response.sendRedirect("LoginForm.jsp");
 			break;
 		}
 		default: {
-			request.setAttribute("LoginErrMsg", "아이디와 패스워드가 일치하지 않습니다.");
+			request.setAttribute("LoginErrMsg", "아이디또는 패스워드가 존재하지 않습니다.");
 			request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
 			break;
 		}
