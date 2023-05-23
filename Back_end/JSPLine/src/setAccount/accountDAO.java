@@ -24,7 +24,7 @@ public class accountDAO extends JDBConnect {
 				dto.setId((String) rs.getObject("ID"));
 				dto.setPwd((String) rs.getObject("PW"));
 				dto.setName((String) rs.getObject("NAME"));
-				dto.setAccPwd(String.valueOf(rs.getInt("ACCPW")));
+				dto.setAccPwd(rs.getInt("ACCPW"));
 				dto.setAccount((String) rs.getObject("Account"));
 				dto.setMoney(String.valueOf(rs.getObject("MONEY")));
 			}

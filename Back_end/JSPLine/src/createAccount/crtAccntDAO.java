@@ -20,7 +20,7 @@ public class crtAccntDAO extends JDBConnect {
             pstmt.setString(1, dto.getName());
             pstmt.setString(2, dto.getId());
             pstmt.setString(3, dto.getPwd());
-            pstmt.setString(4, dto.getAccPwd());
+            pstmt.setInt(4, dto.getAccPwd());
             pstmt.setString(5, dto.getAccount());
             pstmt.setString(6, dto.getMoney());
             result = pstmt.executeUpdate();

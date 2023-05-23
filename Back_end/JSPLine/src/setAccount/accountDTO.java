@@ -4,7 +4,7 @@ public class accountDTO {
 	private String name;
 	private String id;
 	private String pwd;
-	private String accPwd;
+	private int accPwd;
 	private String account;
 	private String money;
 
@@ -32,11 +32,11 @@ public class accountDTO {
 		this.pwd = pwd;
 	}
 
-	public String getAccPwd() {
+	public int getAccPwd() {
 		return accPwd;
 	}
 
-	public void setAccPwd(String accPwd) {
+	public void setAccPwd(int accPwd) {
 		this.accPwd = accPwd;
 	}
 

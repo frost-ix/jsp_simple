@@ -43,7 +43,7 @@
 User name : <%=session.getAttribute("UserName")%><br>
 ID : <%=session.getAttribute("UserId")%><br>
 Password : <%=session.getAttribute("UserPwd")%><br>
-Account Password : <%=session.getAttribute("UseAccPwd")%><br>
+Account Password : <%=session.getAttribute("UserAccPwd")%><br>
 Account : <%=session.getAttribute("UserAccount")%><br>
 Money : <%=session.getAttribute("UserMoney")%><br>
 Flag Point : <%=session.getAttribute("Flag")%><br>
