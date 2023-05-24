@@ -5,7 +5,7 @@
   Time: 11:33 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="createAccount.*" %>
+<%@ page import="crud.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -19,9 +19,8 @@
         int accnt = (int)(Math.random() * 9) + 1;
         account += String.valueOf(accnt);
     }
-
-    crtAccntDAO dao = new crtAccntDAO(application);
-    int result = dao.createDTO(crtName, crtId, crtPw, crtAccntPw, account);
+    crtAccntDAO crtDAO = new crtAccntDAO(application);
+    int result = crtDAO.createDTO(crtName, crtId, crtPw, crtAccntPw, account);
     if (result > 0) {
         response.sendRedirect("crtAccnt.jsp");
     }

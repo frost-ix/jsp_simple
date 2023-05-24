@@ -6,6 +6,21 @@ import java.sql.SQLException;
 
 public class accountDAO extends JDBConnect {
 	public accountDAO(ServletContext application) { super(application); }
+	public accountDTO getAccountPw(String uid, String upwd) {
+		accountDTO dto = new accountDTO();
+		String query = "select PW FROM ACCNT where id = ? and pw =?";
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, uid);
+			pstmt.setString(2, upwd);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setPwd(rs.getString("PW"));
+			}
+		}
+		catch (SQLException e) { e.getMessage(); }
+		return dto;
+	}
 	public accountDTO getAccountDTO(String uid, String upwd) {
 		accountDTO dto = new accountDTO();
 		String query = "SELECT ID, PW, NAME, ACCPW, Account, MONEY FROM ACCNT WHERE ID = ? OR PW = ?";
