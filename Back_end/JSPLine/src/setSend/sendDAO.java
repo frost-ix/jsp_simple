@@ -15,8 +15,8 @@ public class sendDAO extends JDBConnect {
 
     public int InputDTO(sendDTO dto){
         int result = 0;
-        String query = "insert into SEND (sendname, recvname, money, senddate)";
-        query+="values(?,?,?,?)";
+        String query = "insert into SEND (sendname, recvname, money, senddate, account)";
+        query+="values(?,?,?,?,?)";
         try {
 
             pstmt = con.prepareStatement(query);
@@ -69,18 +69,18 @@ public class sendDAO extends JDBConnect {
     }
 
 
-    // 3. 송금가능 여부 확인 영역 ( 존재하는 대상인지 확인 )
+    // 3. 송금가능 여부 확인 영역 ( 존재하는 계좌인지 확인 )
     public boolean RecvCheck(sendDTO dto) {
         boolean result = false;
-        String query = "select recvname from SEND where recvname = ?";
+        String query = "select account from SEND where recvname = ?";
         try{
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, dto.getRecvName());
+            pstmt.setString(1, dto.getAccount());
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                String receiver = rs.getString("recvname");
-                if(receiver != null){
+                String accnt = rs.getString("account");
+                if(accnt != null){
                     result = true;
                 }
             }
