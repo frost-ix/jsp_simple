@@ -1,13 +1,15 @@
-<%@ page import="setSend.sendDAO"%>
-<%@ page import="setSend.sendDTO"%>
-<%@ page import="setAccount.accountDTO"%>
+<%@ page import="setSend.*"%>
+<%@ page import="setAccount.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-    
+    String myName = (String)session.getAttribute("UserName");
+    String myAccount = (String)session.getAttribute("UserAccount");
+    accountDTO recvDTO = new accountDTO();
+    accountDAO recvDAO = new accountDAO(application);
+
     sendDAO dao = new sendDAO(application);
     sendDTO dto = new sendDTO();
-    accountDTO ACCdto = new accountDTO();
 
     dto.setSendName((String) session.getAttribute("UserId"));
     dto.setSendMoney(request.getParameter("send_money"));

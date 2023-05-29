@@ -16,7 +16,6 @@ public class sendDAO extends JDBConnect {
 	}
     
    // 1.  송금액, 수신자 이름, 수신자 계좌번호 정보를 입력받는 영역
-
     public int InputDTO(sendDTO dto){
         int result = 0;
         String query = "insert into SEND (sendname, recvname, sendmoney, senddate, account)";

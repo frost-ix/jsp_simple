@@ -21,6 +21,24 @@ public class accountDAO extends JDBConnect {
 		catch (SQLException e) { e.getMessage(); }
 		return dto;
 	}
+	public accountDTO getRecvUser(String name, String account) {
+		accountDTO dto = new accountDTO();
+		String query = "SELECT ID, Account from accnt where id=? and account=?";
+		try{
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, name);
+			pstmt.setString(2, account);
+			if (rs.next()) {
+				dto.setId(rs.getString("NAME"));
+				dto.setAccount(rs.getString("ACCOUNT"));
+			}
+		}
+		catch (SQLException e) {
+			System.out.println("Exception [GET Receive name] : "+e.getMessage());
+			e.printStackTrace();
+		}
+		return dto;
+	}
 	public accountDTO getAccountDTO(String uid, String upwd) {
 		accountDTO dto = new accountDTO();
 		String query = "SELECT ID, PW, NAME, ACCPW, Account, MONEY FROM ACCNT WHERE ID = ? OR PW = ?";
