@@ -12,7 +12,7 @@
             <% if(session.getAttribute("UserId") == null) { %>
             <a href="../session/LoginForm.jsp">Login</a>
             <% } else { %>
-            <a href="../session/testForm.jsp">Logout</a>
+            <a href="../session/LogOut.jsp">Logout</a>
             <a href="../update/updatePass.jsp">Change Password</a>
             <% } %>
         </td>

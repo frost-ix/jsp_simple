@@ -1,27 +1,25 @@
 package setSend;
-import setAcccount.accountDTO;
 
 public class sendDTO{
-
-    private String sendname;    //송금자 이름    
-    private String recvname;    //수신자 이름
+    private String sendName;    //송금자 이름
+    private String recvName;    //수신자 이름
     private String sendmoney;       //송금액
     private String sendDate;    //송금날짜
 
 public String getSendName() {
-    return sendname;
+    return sendName;
 }
 
-public void setSendName(String sendname) {
-    this.sendname = sendname;
+public void setSendName(String sendName) {
+    this.sendName = sendName;
 }
 
 public String getRecvName(){
-    return recvname;
+    return recvName;
 }
 
-public void setRecvName(String recvname) {
-    this.recvname = recvname;
+public void setRecvName(String recvName) {
+    this.recvName = recvName;
 }
 
 public String getSendMoney(){

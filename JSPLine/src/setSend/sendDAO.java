@@ -48,7 +48,6 @@ public class sendDAO extends JDBConnect {
 
 
     // 2. 송금가능 여부 확인 영역 ( 잔액이 충분한지 확인 )
-
     public boolean MoneyCheck(sendDTO dto) {
 
         boolean result = false;
@@ -109,8 +108,6 @@ public class sendDAO extends JDBConnect {
     }
 
     // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
-
-    
     public boolean MinusMoney(sendDTO dto) {
         boolean result = false;
         String query = "update ACCNT set money = money - ? where name = ?";

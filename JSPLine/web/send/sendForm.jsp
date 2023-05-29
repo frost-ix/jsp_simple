@@ -16,6 +16,8 @@
         </div>
         
         <div class="main">
+
+        <h2>send 테스트</h2>
     <form action="sendProcess.jsp" method="post" name="send">
         송금할 액수 : <input type="text" name="send_money"><br><br>
         수신자 계좌번호 : <input type="text" name="recv_name"><br><br>
@@ -33,6 +35,7 @@
         </span>
     </div>
 
-    </form>
+        </form>
+        </div>
     </body>
 </html>

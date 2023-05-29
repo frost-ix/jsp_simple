@@ -10,10 +10,12 @@
     accountDTO ACCdto = new accountDTO();
 
     dto.setSendName((String) session.getAttribute("UserId"));
+    dto.setSendMoney(request.getParameter("send_money"));
     dto.setRecvName(request.getParameter("recv_name"));
+
     dto.setSendMoney(request.getParameter("send_money"));
     ACCdto.setAccPwd(request.getParameter("acc_pwd"));
-    
+
     // 계좌 존재 여부, 잔액 체크
     int checkRec = dao.RecvCheck(dto);
     int checkBalance = dao.MoneyCheck(dto);
