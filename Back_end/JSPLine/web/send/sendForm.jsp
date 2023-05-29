@@ -4,21 +4,34 @@
 
     <head>
         <title>send 영역</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="./sendForm.css">
     </head>
 
     <body>
-
-        <h2>send테스트</h2>
+        <div class="title">
+        <h2>send테스트</h2><br>
+        <h2>계좌번호</h2><br>
+        <h2>잔고</h2>
+        </div>
+        
+        <div class="main">
     <form action="sendProcess.jsp" method="post" name="send">
-        송금할 액수 : <input type="text" name="send_money">
-        수신자 계좌번호 : <input type="text" name="recv_name">
+        송금할 액수 : <input type="text" name="send_money"><br><br>
+        수신자 계좌번호 : <input type="text" name="recv_name"><br><br>
+        계좌 비밀번호 : <input type="password" name="acc_pwd">
         <hr>
-        <input type="submit" value="송금">
+        
+        <div class="row">
+            <div class="col">
+                <input type="submit" class="form-control  border border-secondary myBtn1" aria-label="input button" value="송금">
+            </div>
+
         <span style="color : coral; font-size: 1.2em;">
             <%= request.getAttribute("sendError") != null ? request.getAttribute("sendError"): "" %>
             <%= request.getAttribute("sendSuccess") != null ? request.getAttribute("sendSuccess"): "" %>
         </span>
-        
+    </div>
 
     </form>
     </body>
