@@ -8,22 +8,18 @@
     accountDTO recvDTO = new accountDTO();
     accountDAO recvDAO = new accountDAO(application);
 
+    String sendValue = request.getAttribute("send_money");
+    String myAccPwd = request.getAttribute("accntPwd");
     sendDAO dao = new sendDAO(application);
     sendDTO dto = new sendDTO();
 
-    dto.setSendName((String) session.getAttribute("UserId"));
-    dto.setSendMoney(request.getParameter("send_money"));
-    dto.setRecvName(request.getParameter("recv_name"));
-
-    dto.setSendMoney(request.getParameter("send_money"));
-    ACCdto.setAccPwd(request.getParameter("acc_pwd"));
-
     // 계좌 존재 여부, 잔액 체크
-    int checkRec = dao.RecvCheck(dto);
-    int checkBalance = dao.MoneyCheck(dto);
-    int checkAccpwd = dao.CheckAccountPassword(dto);
+    boolean check = dao.check(myName, myAccount, send_money);
+    boolean checkRec = dao.RecvCheck(myName, myAccount);
+    boolean checkAccpwd = dao.CheckAccountPassword(myName, myAccPwd);
 
-    if(checkRec == 1 && checkBalance == 1 && checkAccpwd == 1){
+
+    if(checkRec == 1 && check == 1 && checkAccpwd == 1){
         //송금 수행
         int sendResult = dao.SendMoney(dto);
         int deductResult = dao.MinusMoney(dto);

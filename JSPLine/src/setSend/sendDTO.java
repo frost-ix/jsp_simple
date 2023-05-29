@@ -3,7 +3,7 @@ package setSend;
 public class sendDTO{
     private String sendName;    //송금자 이름
     private String recvName;    //수신자 이름
-    private String sendmoney;       //송금액
+    private String money;       //송금액
     private String sendDate;    //송금날짜
 
 public String getSendName() {
@@ -22,12 +22,12 @@ public void setRecvName(String recvName) {
     this.recvName = recvName;
 }
 
-public String getSendMoney(){
-    return sendmoney;
+public String getMoney(){
+    return money;
 }
 
-public void setSendMoney(String sendmoney) {
-    this.sendmoney = sendmoney;
+public void setMoney(String money) {
+    this.money = money;
 }
 
 public String getSendDate() {
