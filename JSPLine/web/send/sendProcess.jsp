@@ -3,20 +3,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-    String myName = (String)session.getAttribute("UserName");
+
     int sessionPwd = Integer.parseInt((String)session.getAttribute("UserAccPwd"));
-    int myAccPwd = Integer.parseInt(request.getParameter("accntPwd"));
-    String myAccount = (String)session.getAttribute("UserAccount");
-    String sendValue = request.getParameter("send_money");
-
-    String recvName = request.getParameter("recvName");
-    int recvAccnt = Integer.parseInt(request.getParameter("recvAccnt"));
-
+    int myAccPwd = Integer.parseInt(request.getParameter("acc_Pwd"));
     boolean IsPasswordSame = sessionPwd == myAccPwd;
+
+
+    int balance = Integer.parseInt((String)session.getAttribute("UserMoney"));
+    int sendMoney = Integer.parseInt(request.getParameter("send_money"));
+    boolean EnoughMoney = balance >= sendMoney;
+
+
+    String myName = (String)session.getAttribute("UserName");
+    String myAccount = (String)session.getAttribute("UserAccount");
+    String recvName = request.getParameter("recv_name");
+    int recvAccnt = Integer.parseInt(request.getParameter("recv_accnt"));
 
     accountDAO recvDAO = new accountDAO(application);
     accountDTO recvDTO = recvDAO.getRecvInfo(recvName, recvAccnt);
     recvDAO.close();
+
+    boolean RecvCheck = true;
+
 
     sendDAO dao = new sendDAO(application);
     sendDTO dto = new sendDTO();
@@ -27,12 +35,12 @@
 //    boolean checkAccpwd = dao.CheckAccountPassword(myName, myAccPwd);
 
 
-    if(checkRec == 1 && check == 1 && checkAccpwd == 1){
+    if(IsPasswordSame && EnoughMoney){ // IsPasswordSame : 계좌비밀번호일치 / EnoughMoney : 잔액충분
         //송금 수행
-        int sendResult = dao.SendMoney(dto);
-        int deductResult = dao.MinusMoney(dto);
+        boolean sendResult = dao.SendMoney(dto);
+        boolean deductResult = dao.MinusMoney(dto);
 
-        if(sendResult == 1 && deductResult== 1){
+        if(sendResult && deductResult){
 
             String sendSuccess = "송금이 성공적으로 완료되었습니다.";
             request.setAttribute("sendSuccess", sendSuccess);
@@ -45,15 +53,15 @@
         }
     }else{
         String sendError= "";
-        if(checkRec != 1){
+        if(){
 
             sendError="존재하지 않는 계좌입니다.";
 
-        }else if(checkBalance != 1){
+        }else if(!EnoughMoney){
 
             sendError="잔액이 부족합니다.";
 
-        }else if(checkAccpwd != 1){
+        }else if(!IsPasswordSame){
 
             sendError="계좌 비밀번호가 일치하지 않습니다.";
 

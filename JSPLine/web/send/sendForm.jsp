@@ -22,7 +22,7 @@
         수신자 이름 : <input type="text" name="recv_name"><br><br>
         수신자 계좌번호 : <input type="text" name="recv_accnt"><br><br>
         송금할 액수 : <input type="text" name="send_money"><br><br>
-        계좌 비밀번호 : <input type="password" name="acc_pwd">
+        계좌 비밀번호 : <input type="password" name="acc_Pwd">
         <hr>
         
         <div class="row">

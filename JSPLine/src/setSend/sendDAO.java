@@ -52,7 +52,7 @@ public class sendDAO extends JDBConnect {
 
         try{
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, ACCdto.getMoney());
+            pstmt.setInt(1, ACCdto.getMoney());
             pstmt.setString(2, ACCdto.getName());
             int rowsAffected = pstmt.executeUpdate();
 
@@ -122,9 +122,9 @@ public class sendDAO extends JDBConnect {
 
     // 송금가능 여부 확인 영역 ( 잔액이 충분한지 확인 )
 
-    public boolean Check(String name, String account, String send_money){
+    public boolean Check(String name, String account, Integer send_money){
     
-        boolean result;
+        boolean result = false;
         accountDTO dto = new accountDTO();
         String query = "select money from ACCNT WHERE name=? and account=?";
         try{
@@ -133,17 +133,14 @@ public class sendDAO extends JDBConnect {
             pstmt.setString(2, account);
             rs = pstmt.executeQuery();
 
-            if(rs.next()){
-               int money = dto.setMoney(rs.getString("money"));
+            if(rs.next()) {
+                int balance = dto.getMoney();
+
+                if (balance > send_money) {
+                    result = true;
+                }
             }
 
-            if(money > send_money)
-            {
-                result = true;
-            }
-            else{
-                result = false;
-            }
         }catch(Exception e){
             System.out.println("Exception [Check]: "+ e.getMessage());
             e.printStackTrace();
@@ -154,7 +151,7 @@ public class sendDAO extends JDBConnect {
 
          // 송금가능 여부 확인 영역 ( 존재하는 계좌인지 확인 )
     public boolean RecvCheck(String name, String account) {
-        boolean result;
+        boolean result = false;
         accountDTO dto = new accountDTO();
         String query = "select account from ACCNT where name = ? ";
         try{
@@ -163,11 +160,9 @@ public class sendDAO extends JDBConnect {
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                String accnt = dto.setAccount(rs.getString("account"));
+                String accnt = dto.getAccount();
                 if(accnt != null){
                     result = true;
-                }else{
-                    result = false;
                 }
             }
             }catch(Exception e){
@@ -179,13 +174,13 @@ public class sendDAO extends JDBConnect {
 
     // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
     
-    public boolean MinusMoney(String name, String money) {
+    public boolean MinusMoney(String name, int money) {
         boolean result = false;
         String query = "update ACCNT set money = money - ? where name = ?";
 
         try{
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, ACCdto.getMoney());
+            pstmt.setInt(1, ACCdto.getMoney());
             pstmt.setString(2, ACCdto.getName());
             int rowsAffected = pstmt.executeUpdate();
 
