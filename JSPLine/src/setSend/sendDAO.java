@@ -44,9 +44,6 @@ public class sendDAO extends JDBConnect {
         return result;
     }
 
-
-    
-
     // 5. 수신자에게 송금하고 수신자에게 보낸만큼 잔액 추가하는 영역
     
     public boolean SendMoney(sendDTO dto) {
@@ -86,7 +83,7 @@ public class sendDAO extends JDBConnect {
             String sendDate = rs.getString("senddate");
 
             record[0] = Integer.toString(balance); //잔액
-            record[1] = dto.getSendMoney(); // 송금한 금액
+            record[1] = dto.getMoney(); // 송금한 금액
             record[2] = recvName; // 수신자
             record[3] = sendDate; //송금날짜
         }
@@ -98,8 +95,7 @@ public class sendDAO extends JDBConnect {
    }
 
    // 계좌 비밀번호 확인 영역
-   public boolean CheckAccountPassword(String name, String accpwd){
-    
+   public boolean CheckAccountPassword(String name, int accPwd){
     boolean result = false;
     accountDTO dto = new accountDTO();
     String query = "select accpw from ACCNT where name=?";
@@ -108,21 +104,19 @@ public class sendDAO extends JDBConnect {
         pstmt.setString(1, name);
         rs = pstmt.executeQuery();
 
-        if(rs.next()){
-
-            String accntpw = rs.getAccPwd(rs.getString("accpw"));
-
-            if(accntpw.equals(accpwd)){
-                result = true;
-            }else{
-                result = false;
-            }
+        if(rs.next()) {
+                dto.setAccPwd(rs.getInt("accpw"));
         }
-    }catch(Exception e){
-        System.out.println("Exception [CheckAccountPassword]: "+ e.getMessage());
-        e.printStackTrace();
-       }
-       return result;
+        int accntpw = dto.getAccPwd();
+        if(accntpw == accPwd){
+            result = true;
+        }
+    }
+    catch(Exception e){
+            System.out.println("Exception [CheckAccountPassword]: "+ e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
     }
 
 
@@ -185,8 +179,8 @@ public class sendDAO extends JDBConnect {
 
     // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
     
-    public int MinusMoney(String name, String money) {
-        int result;
+    public boolean MinusMoney(String name, String money) {
+        boolean result = false;
         String query = "update ACCNT set money = money - ? where name = ?";
 
         try{

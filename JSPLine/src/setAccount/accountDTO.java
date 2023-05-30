@@ -6,7 +6,7 @@ public class accountDTO {
 	private String pwd;
 	private int accPwd;
 	private String account;
-	private String money;
+	private int money;
 
 	public String getName() {
 		return name;
@@ -48,11 +48,11 @@ public class accountDTO {
 		this.account = account;
 	}
 
-	public String getMoney() {
+	public int getMoney() {
 		return money;
 	}
 
-	public void setMoney(String money) {
+	public void setMoney(int money) {
 		this.money = money;
 	}
 

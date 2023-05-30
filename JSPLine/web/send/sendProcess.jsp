@@ -4,19 +4,27 @@
 
 <%
     String myName = (String)session.getAttribute("UserName");
+    int sessionPwd = Integer.parseInt((String)session.getAttribute("UserAccPwd"));
+    int myAccPwd = Integer.parseInt(request.getParameter("accntPwd"));
     String myAccount = (String)session.getAttribute("UserAccount");
-    accountDTO recvDTO = new accountDTO();
-    accountDAO recvDAO = new accountDAO(application);
+    String sendValue = request.getParameter("send_money");
 
-    String sendValue = request.getAttribute("send_money");
-    String myAccPwd = request.getAttribute("accntPwd");
+    String recvName = request.getParameter("recvName");
+    int recvAccnt = Integer.parseInt(request.getParameter("recvAccnt"));
+
+    boolean IsPasswordSame = sessionPwd == myAccPwd;
+
+    accountDAO recvDAO = new accountDAO(application);
+    accountDTO recvDTO = recvDAO.getRecvInfo(recvName, recvAccnt);
+    recvDAO.close();
+
     sendDAO dao = new sendDAO(application);
     sendDTO dto = new sendDTO();
 
     // 계좌 존재 여부, 잔액 체크
-    boolean check = dao.check(myName, myAccount, send_money);
-    boolean checkRec = dao.RecvCheck(myName, myAccount);
-    boolean checkAccpwd = dao.CheckAccountPassword(myName, myAccPwd);
+//    boolean check = dao.check(myName, myAccount, send_money);
+//    boolean checkRec = dao.RecvCheck(myName, myAccount);
+//    boolean checkAccpwd = dao.CheckAccountPassword(myName, myAccPwd);
 
 
     if(checkRec == 1 && check == 1 && checkAccpwd == 1){
