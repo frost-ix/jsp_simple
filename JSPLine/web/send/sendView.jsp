@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 sendDAO dao = new sendDAO(application);
-List<sendDTO> listSend = dao.Record((String)session.getAttribute("UserName"));
+List<sendDTO> listSend = dao.viewSend((String)session.getAttribute("UserName"));
 %>
 <table>
     <tr>
