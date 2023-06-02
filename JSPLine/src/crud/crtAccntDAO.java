@@ -1,7 +1,6 @@
 package crud;
 
 import common.JDBConnect;
-
 import javax.servlet.ServletContext;
 import java.sql.SQLException;
 

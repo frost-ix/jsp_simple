@@ -1,100 +1,118 @@
 package setSend;
+
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletContext;
-
 import common.JDBConnect;
-import setAccount.accountDTO;
-
 
 public class sendDAO extends JDBConnect {
+    public sendDAO(ServletContext application) {
+        super(application);
+    }
 
-    accountDTO ACCdto = new accountDTO();
-
-	public sendDAO(ServletContext application) {
-		super(application);
-	}
-    
-   // 1.  송금액, 수신자 이름, 수신자 계좌번호 정보를 입력받는 영역
-    public int InputDTO(sendDTO dto){
+    // 1.  송금액, 수신자 이름, 수신자 계좌번호 정보를 입력받는 영역
+    public int InputDTO(String sendName, String recvName, int money) {
         int result = 0;
-        String query = "insert into SEND (sendname, recvname, money, senddate, account)";
-        query+="values(?,?,?,?,?)";
+        String query = "insert into SEND (SENDNAME, RECVNAME, MONEY, SENDDATE) values(?,?,?,?)";
 
         try {
-
             pstmt = con.prepareStatement(query);
 
-            pstmt.setString(1, dto.getSendName()); // 송금자 이름
-            pstmt.setString(2, dto.getRecvName()); // 수신자 이름
-            pstmt.setString(3, dto.getMoney()); // 송금할 금액
-            
+            pstmt.setString(1, sendName); // 송금자 이름
+            pstmt.setString(2, recvName); // 수신자 이름
+            pstmt.setInt(3, money); // 송금할 금액
+
             LocalDateTime currentDateTime = LocalDateTime.now();
             String sendDate = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            dto.setSendDate(sendDate);
+            java.util.Date realTime = new java.util.Date();
+            Date sqlDate = new Date(realTime.getTime());
 
-            pstmt.setString(4, sendDate);
-            pstmt.setString(5, ACCdto.getAccount());
+            System.out.println(currentDateTime + " : " + sendDate + " : " + sqlDate);
+            System.out.println(currentDateTime.getClass().getName() + " : " + sendDate.getClass().getName() + " : " + sqlDate.getClass().getName());
+
+            pstmt.setDate(4, sqlDate);
             result = pstmt.executeUpdate();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Exception [Get Send DTO] : " + e.getMessage());
-			e.printStackTrace();
+            e.printStackTrace();
         }
 
         return result;
     }
 
     // 5. 수신자에게 송금하고 수신자에게 보낸만큼 잔액 추가하는 영역
-    
-    public boolean SendMoney(int money, String name) {
-        boolean result = false;
+
+    public void SendMoney(int money, String name) {
+//        boolean result = false;
+//        int rowsAffected;
         String query = "update ACCNT set money = money + ? where name = ?";
+
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setInt(1, money);
+            pstmt.setString(2, name);
+            pstmt.executeUpdate();
+
+//            if (rowsAffected > 0) {  //데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
+//                result = true;
+//            }
+        } catch (Exception e) {
+            System.out.println("Exception [SendMoney] : " + e.getMessage());
+            e.printStackTrace();
+        }
+//        return result;
+    }
+    // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
+
+    public void MinusMoney(int money, String name) {
+//        boolean result = false;
+//        int rowsAffected;
+        String query = "update ACCNT set money = money - ? where name = ?";
 
         try{
             pstmt = con.prepareStatement(query);
-            pstmt.setInt(1, ACCdto.getMoney());
-            pstmt.setString(2, ACCdto.getName());
-            int rowsAffected = pstmt.executeUpdate();
+            pstmt.setInt(1, money);
+            pstmt.setString(2, name);
+            pstmt.executeUpdate();
 
-            if(rowsAffected > 0){  //데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
-                result = true;
-            }
-            
+//            if( rowsAffected > 0 ) {    // 데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
+//                result = true;
+//            }
         }catch(Exception e){
-            System.out.println("Exception [SendMoney] : "+ e.getMessage());
+            System.out.println("Exception [MinusMoney]: "+e.getMessage());
             e.printStackTrace();
         }
-        return result;
+//        return result;
     }
 
     // 6. 송금한 후 잔액, 송금한 금액, 수신자 이름, 보낸날짜를 저장하고 보여주는 영역
 
-   public String[] Record(sendDTO dto) {
-    String[] record = new String[4];
-    String query = "select money, recvname, senddate from SEND where sendname =?";
-    try{
-        pstmt = con.prepareStatement(query);
-        pstmt.setString(1, dto.getSendName());
-        rs = pstmt.executeQuery();
-
-        if(rs.next()) {
-            int balance = rs.getInt("money");
-            String recvName = rs.getString("recvname");
-            String sendDate = rs.getString("senddate");
-
-            record[0] = Integer.toString(balance); //잔액
-            record[1] = dto.getMoney(); // 송금한 금액
-            record[2] = recvName; // 수신자
-            record[3] = sendDate; //송금날짜
+    public List<sendDTO> Record(String sendName) {
+        List<sendDTO> sendList = new ArrayList<>();
+        String query = "select * from SEND where sendname =?";
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, sendName);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                sendDTO tempDTO = new sendDTO();
+                tempDTO.setSendName(rs.getString("SENDNAME"));
+                tempDTO.setRecvName(rs.getString("RECVNAME"));
+                tempDTO.setSendDate(rs.getDate("SENDDATE"));
+                tempDTO.setMoney(rs.getInt("Money"));
+                sendList.add(tempDTO);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception [Record] : " + e.getMessage());
+            e.printStackTrace();
         }
-    } catch (Exception e){
-        System.out.println("Exception [Record] : "+e.getMessage());
-        e.printStackTrace();
+        return sendList;
     }
-    return record;
-   }
 
-   // 계좌 비밀번호 확인 영역
+    // 계좌 비밀번호 확인 영역
 //   public boolean CheckAccountPassword(String name, int accPwd){
 //    boolean result = false;
 //    accountDTO dto = new accountDTO();
@@ -147,52 +165,4 @@ public class sendDAO extends JDBConnect {
 //           }
 //           return result;
 //        }
-
-
-         // 송금가능 여부 확인 영역 ( 존재하는 계좌인지 확인 )
-    public boolean RecvCheck(String name, String account) {
-        boolean result = false;
-        accountDTO dto = new accountDTO();
-        String query = "select account from ACCNT where name = ? ";
-        try{
-            pstmt = con.prepareStatement(query);
-            pstmt.setString(1, name);
-            rs = pstmt.executeQuery();
-
-            if(rs.next()){
-                String accnt = dto.getAccount();
-                if(accnt != null){
-                    result = true;
-                }
-            }
-            }catch(Exception e){
-                System.out.println("Exception [RecvCheck]"+e.getMessage());
-                 e.printStackTrace();
-        }
-        return result;
-    }
-
-    // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
-    
-    public boolean MinusMoney(int money, String name) {
-        boolean result = false;
-        String query = "update ACCNT set money = money - ? where name = ?";
-
-        try{
-            pstmt = con.prepareStatement(query);
-            pstmt.setInt(1, ACCdto.getMoney());
-            pstmt.setString(2, ACCdto.getName());
-            int rowsAffected = pstmt.executeUpdate();
-
-            if( rowsAffected > 0 ) {    // 데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
-                result = true;
-            }
-        }catch(Exception e){
-            System.out.println("Exception [MinusMoney]: "+e.getMessage());
-            e.printStackTrace();
-        }
-        return result;
-    }
 }
-
-    

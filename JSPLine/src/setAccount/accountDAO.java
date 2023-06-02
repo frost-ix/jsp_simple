@@ -6,14 +6,16 @@ import java.sql.SQLException;
 
 public class accountDAO extends JDBConnect {
 	public accountDAO(ServletContext application) { super(application); }
-	public accountDTO getRecvInfo(String name, int accnt) {
+	public accountDTO getRecvInfo(String name, String accnt) {
 		accountDTO dto = new accountDTO();
-		String query = "select accnt.account, accnt.money from accnt where name=? and account=?";
+		String query = "select accnt.NAME, accnt.account, accnt.money from accnt where name=? and account=?";
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, name);
-			pstmt.setInt(2, accnt);
+			pstmt.setString(2, accnt);
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				dto.setName(rs.getString("NAME"));
 				dto.setAccount(rs.getString("ACCOUNT"));
 				dto.setMoney(rs.getInt("MONEY"));
 			}
