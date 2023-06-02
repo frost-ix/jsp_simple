@@ -9,18 +9,40 @@
 <html>
 <head>
     <title>update</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formManage.css">
+
 </head>
 <body>
+
 <span style="color: coral; font-size: 1.2em;">
         <%= request.getAttribute("CreateError") == null ? "" : request.getAttribute("CreateError") %>
     </span>
-<h2>Update Test</h2>
+
+<div class="main_Update">
+
 <form action="updateProcess.jsp" method="post" name="update">
-    <h3>변경할 비밀번호를 입력하는 공간.</h3>
-    이전 비밀번호 : <input type="password" name="old_pass"><br>
-    변경할 비밀번호 : <input type="password" name="new_pass"><br>
-    한번 더 입력해주세요 : <input type="password" name="new_check_pass"><br>
-    <input type="submit" value="보내기">
+
+
+   <div class="title_Update">
+        <h3>비밀번호 변경</h3>
+   </div>
+
+    <div class="textAreaPass">
+         <input type="password" name="old_pass" placeholder="이전 비밀번호"><br>
+    </div>
+
+    <div class="textAreaPass">
+        <input type="password" name="new_pass" placeholder="변경할 비밀번호"><br>
+    </div>
+
+    <div class="textAreaPass">
+        <input type="password" name="new_check_pass" placeholder="한번 더 입력해주세요"><br>
+    </div>
+
+    <div class="btn-Update">
+        <button type="submit">변경하기</button>
+    </div>
 </form>
+</div>
 </body>
 </html>

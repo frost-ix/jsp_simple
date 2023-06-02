@@ -1,0 +1,37 @@
+.containerView {
+    display: flex;
+    justify-content: center;
+}
+.itemInfo_view {
+    flex-basis: 300px ;
+    height: 400px;
+    border: 1px solid black;
+    margin-right: 45px;
+    text-align: right;
+}
+.itemInfo_view #textArea {
+    transform: translate(-15%);
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-bottom: 5%;
+}
+
+.itemSend_view {
+    flex-basis: 300px ;
+    height: 400px;
+    border: 1px solid black;
+    text-align: left;
+}
+.itemSend_view #textSend {
+    font-size: larger;
+    margin-top: 7.5%;
+    transform: translate(12.5%);
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#toSend {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateX(200%);
+    /*-ms-transform: translateY(-50%);*/
+}

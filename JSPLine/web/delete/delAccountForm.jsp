@@ -9,20 +9,42 @@
 <html>
 <head>
     <title>Delete test</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formManage.css">
 </head>
 <body>
-<jsp:include page="../common/Link.jsp"/>
+
+
+
+<div class="titleDel">
+    <h3>정말로 탈퇴 하시겠습니까?</h3>
+    탈퇴를 하시려면 본인 이름과 계좌 비밀번호를 입력해주세요 <br>
 <span style="color: chocolate; font-size: 1.2em;">
         <%= request.getAttribute("AccountDelErr") == null ? "" : request.getAttribute("AccountDelErr") %>
     </span>
-<form action="deleteProcess.jsp" method="post" name="deleteForm">
-    <h3>정말로 탈퇴 하시겠습니까?</h3>
-    탈퇴를 하시려면 본인 이름과 계좌 비밀번호를 입력해주세요 <br>
-    <input type="text" name="delName" placeholder="본인 이름"> <br>
-    <input type="password" name="delPwd" placeholder="계정 비밀번호"> <br>
-    <input type="password" name="delAccntPwd" placeholder="계좌 비밀번호"> <br>
-    <input type="submit" value="탈퇴하기">
+</div>
+
+    <div class="mainDel">
+
+    <form action="deleteProcess.jsp" method="post" name="deleteForm">
+
+        <div class="textAreaDel">
+            <input type="text" name="delName" placeholder="본인 이름"> <br>
+        </div>
+
+        <div class="textAreaDel">
+            <input type="password" name="delPwd" placeholder="계정 비밀번호"> <br>
+        </div>
+
+        <div class="textAreaDel">
+             <input type="password" name="delAccntPwd" placeholder="계좌 비밀번호"> <br>
+        </div>
+
+        <div class="btn-del">
+             <button type="submit">탈퇴하기</button>
+        </div>
+
 </form>
+</div>
 
 </body>
 </html>

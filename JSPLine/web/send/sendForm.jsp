@@ -3,46 +3,48 @@
 <html>
     <head>
         <title>send 영역</title>
-        <link rel="stylesheet" href="sendForm.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formManage.css">
 
-<%--        <link rel="stylesheet" href="./sendForm.css">--%>
     </head>
 
     <body>
 
 
-        <div class="title">
+        <div class="titleSend">
             <h2><%= request.getAttribute("myName")%>님의 계좌</h2>
         <br>
             <h2><%= request.getAttribute("balance")%>    잔액</h2>
         </div>
 
-        <div class="main">
+        <div class="mainSend">
 
 
         <form action="sendProcess.jsp" method="post" name="send">
 
-            <div class="textArea">
-                <input type="text" name="recvName" id="recvName">
-                <label for="recvName">수신자 이름</label>
+            <section class="questionSend">
+                 <h3>누구한테 보낼까요?</h3>
+            <div class="textAreaSend">
+                <input type="text" name="recvName" id="recvName" placeholder="수신자 이름" >
+
             </div>
 
-            <div class="textArea">
-               <input type="text" name="recvAccount" id="recvAccount">
-                <label for="recvAccount">수신자 계좌번호</label>
+            <div class="textAreaSend">
+               <input type="text" name="recvAccount" id="recvAccount" placeholder="수신자 계좌번호">
+
             </div>
 
-            <div class="textArea">
-                <input type="text" name="send_money" id="send_money">
-                <label for="send_money">송금할 액수</label>
+            <div class="textAreaSend">
+                <input type="text" name="send_money" id="send_money" placeholder="송금할 액수 ">
+
             </div>
 
-            <div class="textArea">
-                <input type="password" name="acc_Pwd" id="acc_Pwd">
-                <label for="acc_Pwd">계좌 비밀번호</label>
+            <div class="textAreaSend">
+                <input type="password" name="acc_Pwd" id="acc_Pwd" placeholder="계좌 비밀번호">
+
             </div>
 
-               <div class="btn-area">
+
+            <div class="btn-Send">
                   <button type="submit">송금</button>
                </div>
 
@@ -50,7 +52,9 @@
                         <%= request.getAttribute("sendError") != null ? request.getAttribute("sendError"): "" %>
                         <%= request.getAttribute("sendSuccess") != null ? request.getAttribute("sendSuccess"): "" %>
                     </span>
+            </section>
             </form>
         </div>
+
     </body>
 </html>
