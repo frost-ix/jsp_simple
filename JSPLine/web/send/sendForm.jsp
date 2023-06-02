@@ -20,8 +20,8 @@
         <form action="sendProcess.jsp" method="post" name="send">
                 수신자 이름 : <input type="text" name="recvName"><br><br>
                 수신자 계좌번호 : <input type="text" name="recvAccount"><br><br>
-                송금할 액수 : <input type="text" name="send_money"><br><br>
-                계좌 비밀번호 : <input type="password" name="acc_Pwd"><hr>
+                송금할 액수 : <input type="text" name="sendMoney"><br><br>
+                계좌 비밀번호 : <input type="password" name="accPwd"><hr>
 
                 <div class="row">
                     <div class="col">

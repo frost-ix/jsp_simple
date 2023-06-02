@@ -42,57 +42,33 @@ public class sendDAO extends JDBConnect {
 
         return result;
     }
-
-    // 5. 수신자에게 송금하고 수신자에게 보낸만큼 잔액 추가하는 영역
-
-    public void SendMoney(int money, String name) {
-//        boolean result = false;
-//        int rowsAffected;
-        String query = "update ACCNT set money = money + ? where name = ?";
-
+    public void sendingProc(int money, String sendName, String recvName) {
+        String queryPlus = "update ACCNT set money = money + ? where name = ?";
+        String queryMinus = "update ACCNT set money = money - ? where name = ?";
         try {
-            pstmt = con.prepareStatement(query);
+//            수신자의 계좌에 금액 추가
+            pstmt = con.prepareStatement(queryPlus);
             pstmt.setInt(1, money);
-            pstmt.setString(2, name);
+            pstmt.setString(2, recvName);
             pstmt.executeUpdate();
 
-//            if (rowsAffected > 0) {  //데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
-//                result = true;
-//            }
-        } catch (Exception e) {
-            System.out.println("Exception [SendMoney] : " + e.getMessage());
-            e.printStackTrace();
-        }
-//        return result;
-    }
-    // 4. 송금하고 잔액에서 보낸만큼 차감하는 영역
-
-    public void MinusMoney(int money, String name) {
-//        boolean result = false;
-//        int rowsAffected;
-        String query = "update ACCNT set money = money - ? where name = ?";
-
-        try{
-            pstmt = con.prepareStatement(query);
+//            송신자의 계좌에 금액 차감
+            pstmt = con.prepareStatement(queryMinus);
             pstmt.setInt(1, money);
-            pstmt.setString(2, name);
+            pstmt.setString(2, sendName);
             pstmt.executeUpdate();
-
-//            if( rowsAffected > 0 ) {    // 데이터베이스 업데이트가 한 개 이상 영향을 받으면 true
-//                result = true;
-//            }
-        }catch(Exception e){
-            System.out.println("Exception [MinusMoney]: "+e.getMessage());
+        }
+        catch (SQLException e) {
+            System.out.println("Exception [Sending Proc] : " + e.getMessage());
             e.printStackTrace();
         }
-//        return result;
     }
 
     // 6. 송금한 후 잔액, 송금한 금액, 수신자 이름, 보낸날짜를 저장하고 보여주는 영역
 
-    public List<sendDTO> Record(String sendName) {
+    public List<sendDTO> viewSend(String sendName) {
         List<sendDTO> sendList = new ArrayList<>();
-        String query = "select * from SEND where sendname =?";
+        String query = "select SENDNAME, RECVNAME, SENDDATE, MONEY from SEND where sendname =?";
         try {
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, sendName);

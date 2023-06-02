@@ -5,19 +5,18 @@
 <%
     // 계좌 비밀번호 일치 확인
     int sessionPwd = (int)(session.getAttribute("UserAccPwd"));
-    int myAccPwd = Integer.parseInt(request.getParameter("acc_Pwd"));
+    int myAccPwd = Integer.parseInt(request.getParameter("accPwd"));
     boolean IsPasswordSame = sessionPwd == myAccPwd;
     System.out.println(sessionPwd + " : " + myAccPwd + " : " + IsPasswordSame);
 
     // 잔액이 충분한지 확인
     int balance = (int)(session.getAttribute("UserMoney"));
-    int sendMoney = Integer.parseInt(request.getParameter("send_money"));
+    int sendMoney = Integer.parseInt(request.getParameter("sendMoney"));
     boolean EnoughMoney = balance >= sendMoney;
     System.out.println(balance + " : " + sendMoney + " : " + EnoughMoney);
 
     // 수신자가 존재하는지 확인
     String myName = (String)session.getAttribute("UserName");
-//    String myAccount = (String)session.getAttribute("UserAccount");
     String recvName = request.getParameter("recvName");
     String recvAccnt = request.getParameter("recvAccount");
     System.out.println(myName + " : " + recvName + " : "+ recvAccnt);
@@ -36,17 +35,11 @@
     sendDAO sendDao = new sendDAO(application);
     int sendResults = sendDao.InputDTO(myName, recvName, sendMoney);
 
-    // 계좌 존재 여부, 잔액 체크
-//    boolean check = sendDao.check(myName, myAccount, send_money);
-//    boolean checkRec = sendDao.RecvAccountCheck(myName, myAccount);
-//    boolean checkAccpwd = sendDao.CheckAccountPassword(myName, myAccPwd);
-
 // IsPasswordSame : 계좌비밀번호일치 / EnoughMoney : 잔액충분 / RecvAccountCheck : 사용자와 계좌 존재
 // 3개 모두 True : 송금 수행
     if (IsPasswordSame && EnoughMoney && RecvAccountCheck) {
         if(sendResults > 0){     // 송금이 성공적으로 수행됐다면
-            sendDao.SendMoney(sendMoney,recvName);
-            sendDao.MinusMoney(sendMoney,myName);
+            sendDao.sendingProc(sendMoney, myName, recvName);
             request.setAttribute("sendSuccess", "송금이 성공적으로 완료되었습니다.");
             response.sendRedirect("sendForm.jsp");
         }

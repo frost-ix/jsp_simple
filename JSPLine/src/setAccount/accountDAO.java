@@ -6,6 +6,29 @@ import java.sql.SQLException;
 
 public class accountDAO extends JDBConnect {
 	public accountDAO(ServletContext application) { super(application); }
+	public String searchPassword(String name, String uid, int accPw) {
+		String uPw = "";
+		String query = "select PW from JSP.ACCNT where name=? and id=? and accpw=?";
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, name);
+			pstmt.setString(2, uid);
+			pstmt.setInt(3, accPw);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				uPw = rs.getString("PW");
+				if (uPw != null) {
+					return uPw;
+				}
+				else { uPw = "n"; }
+			}
+		}
+		catch (SQLException e) {
+			System.out.println("Exception [Search Password] : "+e.getMessage());
+			e.printStackTrace();
+		}
+		return uPw;
+	}
 	public accountDTO getRecvInfo(String name, String accnt) {
 		accountDTO dto = new accountDTO();
 		String query = "select accnt.NAME, accnt.account, accnt.money from accnt where name=? and account=?";
