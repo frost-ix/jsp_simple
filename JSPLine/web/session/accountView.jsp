@@ -106,7 +106,7 @@
             <%if (i==currentpage) {%>
             <strong><%=i%></strong>
             <% } else { %>
-            <a href="?pageNum=<%=i%>%>"><%=i%></a>
+            <a href="?pageNum=<%=i%>"><%=i%></a>
             <%}%>
             <%}%>
 

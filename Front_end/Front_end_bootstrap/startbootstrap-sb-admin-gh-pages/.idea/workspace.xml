@@ -5,12 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0326ccd2-c915-4c47-a4d8-98b6630a5042" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JSPLine/src/setAccount/accountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/src/setAccount/accountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JSPLine/src/setSend/sendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/src/setSend/sendDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/send/sendProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/send/sendProcess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/send/sendView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/send/sendView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/session/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/session/signUp.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/401.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/accnt show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/assets/demo/chart-area-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/assets/demo/chart-bar-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/assets/demo/chart-pie-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/assets/demo/datatables-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/assets/img/error-404-monochrome.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/deleteId.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/img/169850.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/img/3888631.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/js/datatables-simple-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/play.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/pwchange.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/send.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../JSPLine/web/Front_End/userinf.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/JSPLine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/JSPLine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/session/accountView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/session/accountView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/web/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/web/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,21 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/Users/sung/Desktop/jsp/jsp_simple/Front_end/Front_end_bootstrap/startbootstrap-sb-admin-gh-pages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sung/Desktop/jsp/jsp_simple/Front_end/Front_end_bootstrap/startbootstrap-sb-admin-gh-pages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -50,6 +72,7 @@
       <updated>1685713448546</updated>
       <workItem from="1685713449860" duration="117000" />
       <workItem from="1685713860397" duration="917000" />
+      <workItem from="1685783439699" duration="731000" />
     </task>
     <servers />
   </component>
