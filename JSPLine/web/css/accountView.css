@@ -13,7 +13,7 @@ h1{
 }
 .itemInfo_view {
     flex-basis: 400px ;
-    height: 500px;
+    height: 560px;
     border: 1px solid black;
     margin-right: 50px;
     text-align: right;
@@ -26,7 +26,7 @@ h1{
 
 .itemSend_view {
     flex-basis: 400px ;
-    height: 500px;
+    height: 560px;
     border: 1px solid black;
     text-align: left;
 }
@@ -55,6 +55,10 @@ h1{
     font-size: 20px;
     border: none;
     border-radius: 10px;
+}
+
+.pageNav{
+    margin-top: auto;
 }
 
 .pagination{
