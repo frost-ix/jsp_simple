@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0326ccd2-c915-4c47-a4d8-98b6630a5042" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/src/setAccount/accountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/src/setAccount/accountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/src/setSend/sendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/src/setSend/sendDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/send/sendProcess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/send/sendProcess.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/send/sendView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/send/sendView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JSPLine/web/session/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JSPLine/web/session/signUp.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2QeUGzpNt7u7GR2M8KMQT69Xa8H" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "/Users/sung/Desktop/jsp/jsp_simple/Front_end/Front_end_bootstrap/startbootstrap-sb-admin-gh-pages",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="0326ccd2-c915-4c47-a4d8-98b6630a5042" name="변경" comment="" />
+      <created>1685713448546</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685713448546</updated>
+      <workItem from="1685713449860" duration="117000" />
+      <workItem from="1685713860397" duration="917000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
