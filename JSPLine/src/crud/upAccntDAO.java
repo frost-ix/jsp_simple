@@ -22,4 +22,20 @@ public class upAccntDAO extends JDBConnect {
         }
         return result;
     }
+    public int rewardCash(String id, String pw, int money) {
+        int result = 0;
+        String query = "update accnt set money = money + ? where id = ? and pw = ?";
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setInt(1, money);
+            pstmt.setString(2, id);
+            pstmt.setString(3, pw);
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.out.println("Exception [reward Cash] : "+e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

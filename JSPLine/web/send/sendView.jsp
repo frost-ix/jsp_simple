@@ -9,23 +9,29 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    int listNumber = 1;
 sendDAO dao = new sendDAO(application);
 List<sendDTO> listSend = dao.viewSend((String)session.getAttribute("UserName"));
 %>
 <table>
+    <%=listSend.size()%> <br>
     <tr>
+        <th>번호</th>
         <th>송금자</th>
         <th>수신자</th>
         <th>이체 금액</th>
         <th>송금 날짜</th>
     </tr>
 <% for (sendDTO dto : listSend ) { %>
+<%--    for(int i = 0;  i< listSend.size(); i++)--%>
     <tr>
+        <td><%=listNumber%></td>
         <td><%=dto.getSendName()%></td>
         <td><%=dto.getRecvName()%></td>
         <td><%=dto.getMoney()%></td>
         <td><%=dto.getSendDate()%></td>
-</tr>
+        <%listNumber++;%>
+    </tr>
 <% } %>
 </table>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
