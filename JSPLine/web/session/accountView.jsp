@@ -58,7 +58,7 @@
 </head>
 <body>
 <div class="d-flex flex-row" id="wrapper">
-    <%--    <jsp:include page="../index.jsp"/>--%>
+    <%--    <jsp:include page="../main.jsp"/>--%>
     <%--<h1>Login success</h1>--%>
     <jsp:include page="${pageContext.request.contextPath}../sideBar.jsp"/>
     <div id="page-content-wrapper">

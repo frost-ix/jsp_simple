@@ -35,7 +35,7 @@
         if (result > 0) {
             session.setAttribute("createFlag", 2);
             request.setAttribute("CreateCheck", "생성 완료");
-            response.sendRedirect("crtAccnt.jsp");
+            response.sendRedirect("../main.jsp");
         }
         else {
             session.setAttribute("createFlag", 1);
