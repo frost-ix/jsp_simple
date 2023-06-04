@@ -11,7 +11,6 @@
     <title>Register</title>
     <link href="css/stylesOther.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
     <script>
         function validateRegister(form) {
             const name = form.signName;

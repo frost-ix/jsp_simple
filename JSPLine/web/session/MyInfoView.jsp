@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>개인정보</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formManage.css">
 </head>
 <body>

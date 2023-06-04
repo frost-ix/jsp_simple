@@ -20,7 +20,7 @@
     int flag = dao.deleteDAO(delName, delPwd, delAccntPwd);
 
     if (flag > 0) {
-        response.sendRedirect("../session/LogOut.jsp");
+        response.sendRedirect("../session/sessionQuit.jsp");
     }
     else {
         request.setAttribute("AccountDelErr", "탈퇴에 실패했습니다. 잔고 확인 또는 비밀번호를 해주세요!");

@@ -19,7 +19,7 @@
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
-            <a href="../session/LogOut.jsp" style="color: navy">로그아웃</a>
+            <a href="../session/sessionQuit.jsp" style="color: navy">로그아웃</a>
         </div>
     </form>
 </nav>
