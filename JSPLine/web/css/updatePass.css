@@ -12,12 +12,10 @@ body{ margin: 0; padding: 0; box-sizing: border-box}
 }
 
 .title_Update h3{
-
     font-size: 30px;
 }
 
 .main_Update{
-
     display: flex;
     justify-content: center;
     align-items: center;

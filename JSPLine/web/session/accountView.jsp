@@ -58,23 +58,28 @@
 </head>
 <body>
 <div class="d-flex flex-row" id="wrapper">
-    <%--    <jsp:include page="../main.jsp"/>--%>
-    <%--<h1>Login success</h1>--%>
     <jsp:include page="${pageContext.request.contextPath}../sideBar.jsp"/>
     <div id="page-content-wrapper">
         <jsp:include page="${pageContext.request.contextPath}../topNav.jsp"/>
         <div class="containerView d-flex flex-row bd-highlight mb-3" style="margin-top:3%">
-            <div class="p-2 bd-highlight itemInfo_view"><br>
-                <div id="textArea"><%=session.getAttribute("UserName")%> 의 계좌</div>
-                <div id="textArea"><%=session.getAttribute("UserAccount")%> <- 계좌번호</div>
-                <div id="textArea"><%=session.getAttribute("UserMoney")%> <- 잔고</div>
+            <div class="itemInfo_view p-2 bd-highlight"><br>
+                <div class="display-6" id="textAreaName"><%=session.getAttribute("UserName")%>님 어서오세요.</div>
+                <div class="h4" id="textArea">
+                    <div id="textInfo"><strong>계좌 번호</strong></div>
+                    <%=session.getAttribute("UserAccount")%>
+                </div>
+                <div class="h4" id="textArea">
+                    <div id="textInfo"><strong>잔고</strong></div>
+                    <%=session.getAttribute("UserMoney")%>
+                </div>
                 <div id="toSend">
-                    <button><a href="../send/sendForm.jsp" onclick="" style="color:white">송금하기</a></button>
+                    <button><a href="../send/sendForm.jsp" onclick="" style="color:white; text-decoration-line: none;">송금하기</a></button>
                 </div>
             </div>
             <div class="p-2 bd-highlight itemSend_view">
 
-                <div id="textSend">총 이체 내역 :  <%=totalCount %>
+                <div id="textSend">
+                    <span id="textTitle">총 이체 내역</span> <%=totalCount %>
                 </div>
                 <hr>
                 <div class="Send_Record">
@@ -108,23 +113,27 @@
                     </table>
 
                 </div>
-                <div class="pagination">
+                <div class="pagination justify-content-center">
+<%--                    style="position: absolute; bottom:40%; transform: translateX(70%);"--%>
                     <% if (currentpage > 1) { %>
-                    <a href="?pageNum=<%=currentpage-1%>">이전</a>
+                    <a class="page-link" href="?pageNum=<%=currentpage-1%>">이전</a>
                     <% } %>
 
                     <% for (int i = 1; i <= totalPage; i++) {%>
                     <%if (i == currentpage) {%>
-                    <strong><%=i%>
+                    <strong>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#"><%=i%></a>
+                        </li>
                     </strong>
                     <% } else { %>
-                    <a href="?pageNum=<%=i%>"><%=i%>
+                    <a class="page-link" href="?pageNum=<%=i%>"><%=i%>
                     </a>
                     <%}%>
                     <%}%>
 
                     <% if (currentpage < totalPage) {%>
-                    <a href="?pageNum=<%=currentpage +1%>">다음</a>
+                    <a class="page-link" href="?pageNum=<%=currentpage +1%>">다음</a>
                     <%}%>
 
                 </div>

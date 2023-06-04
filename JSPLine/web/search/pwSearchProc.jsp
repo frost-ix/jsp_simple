@@ -14,7 +14,16 @@
     accountDAO dao = new accountDAO(application);
     String searchedPwd = dao.searchPassword(name, uid, uPw);
     System.out.println(searchedPwd);
-
-    session.setAttribute("searchedPwd",searchedPwd);
-    response.sendRedirect("pwSearch.jsp");
+    out.println("<script>");
+    if (searchedPwd != null) {
+        out.println("alert('"+searchedPwd+"+.');");
+        out.println("</script>");
+        session.setAttribute("searchedPwd",searchedPwd);
+        response.sendRedirect("../index.jsp");
+    }
+    else {
+        out.println("alert('패스워드 탐색에 실패하였습니다.');");
+        out.println("</script>");
+        response.sendRedirect("../index.jsp");
+    }
 %>

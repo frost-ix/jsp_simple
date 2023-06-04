@@ -30,7 +30,7 @@
                                 <button class="btn-block btn-color">로그인</button>
                             </div>
                         </form>
-                        <div class="row justify-content-center my-2"><a href="password.jsp"><small class="text-muted">비밀번호를
+                        <div class="row justify-content-center my-2"><a href="search/password.jsp"><small class="text-muted">비밀번호를
                             잊으셨나요?</small></a></div>
                     </div>
                 </div>
