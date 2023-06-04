@@ -23,13 +23,21 @@
                 <!-- Page content-->
                 <div class="container-fluid">
                     <div class="centerContent" style="margin-left: 25%; margin-top: 25%;">
-                        <h2>
-                            <script>document.write(new Date().toLocaleString())</script>
-                        </h2>
-                        <br>
-                        <h2>
-                            <script>document.write(new Date().getWorldTime())</script>
-                        </h2>
+                        <script>
+                        function getCurrentTime() {
+                            const now = new Date();
+                            const hours = now.getHours();
+                            const minutes = now.getMinutes();
+                            const seconds = now.getSeconds();
+                            return hours + " : " + minutes + " : " + seconds;
+                        }
+                        </script>
+                        <div id="currentTime" style="width: 50%; height: 50%; font-size: 35px"></div>
+                        <script>
+                            setInterval(function() {
+                                document.getElementById("currentTime").innerHTML = "한국 현재 시간 : "+getCurrentTime();
+                            }, 1000);
+                        </script>
                     </div>
                 </div>
             </div>
