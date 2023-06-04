@@ -69,7 +69,7 @@
                 <div id="textArea"><%=session.getAttribute("UserAccount")%> <- 계좌번호</div>
                 <div id="textArea"><%=session.getAttribute("UserMoney")%> <- 잔고</div>
                 <div id="toSend">
-                    <button><a href="./send/sendForm.jsp" onclick="" style="color:white">송금하기</a></button>
+                    <button><a href="../send/sendForm.jsp" onclick="" style="color:white">송금하기</a></button>
                 </div>
             </div>
             <div class="p-2 bd-highlight itemSend_view">

@@ -22,6 +22,15 @@
                 <jsp:include page="topNav.jsp" flush="false" />
                 <!-- Page content-->
                 <div class="container-fluid">
+                    <div class="centerContent" style="margin-left: 25%; margin-top: 25%;">
+                        <h2>
+                            <script>document.write(new Date().toLocaleString())</script>
+                        </h2>
+                        <br>
+                        <h2>
+                            <script>document.write(new Date().getWorldTime())</script>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
