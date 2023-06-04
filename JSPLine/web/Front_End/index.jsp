@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +19,16 @@
                 <div class="row justify-content-center my-auto">
                     <div class="col-md-8 col-10 my-5">
                         <h3 class="mb-5 text-center heading">로그인</h3>
-                        <div class="form-group"><label class="form-control-label text-muted">Username</label> <input
-                                type="text" id="email" name="email" placeholder="아이디를 입력하세요" class="form-control"></div>
-                        <div class="form-group"><label class="form-control-label text-muted">Password</label> <input
-                                type="password" id="psw" name="psw" placeholder="비밀번호를 입력하세요" class="form-control">
-                        </div>
-                        <div class="row justify-content-center my-3 px-3">
-                            <button class="btn-block btn-color">로그인</button>
-                        </div>
+                            <form action="../session/LoginProcess.jsp" method="post">
+                                <div class="form-group"><label class="form-control-label text-muted">Username</label> <input
+                                        type="text" id="email" name="id" placeholder="아이디를 입력하세요" class="form-control"></div>
+                                <div class="form-group"><label class="form-control-label text-muted">Password</label> <input
+                                        type="password" id="psw" name="pw" placeholder="비밀번호를 입력하세요" class="form-control">
+                                </div>
+                                <div class="row justify-content-center my-3 px-3">
+                                    <button class="btn-block btn-color">로그인</button>
+                                </div>
+                            </form>
                         <div class="row justify-content-center my-2"><a href="password.html"><small class="text-muted">비밀번호를
                             잊으셧나요?</small></a></div>
                     </div>

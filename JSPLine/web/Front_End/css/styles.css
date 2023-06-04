@@ -11262,9 +11262,9 @@ body {
   margin-right: 200px;
   padding-bottom: 250px;
 }
-.accntinf{
+.accountView{
   margin : 5px;
-  padding: 25.3%;
+  /*padding: 25.3%;*/
 }
 .gosend{
   border : solid 1px;

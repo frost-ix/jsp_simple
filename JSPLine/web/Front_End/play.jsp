@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,16 @@
     <title>Main page</title>
     <link href="css/styles.css" rel="stylesheet"/>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-white bg-white">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="main.html">Simple Bank</a><!--좌상단 메인페이지 버튼(a태그 문구 활용)   -->
+    <a class="navbar-brand ps-3" href="main.jsp">Simple Bank</a><!--좌상단 메인페이지 버튼(a태그 문구 활용)   -->
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
-            <a href="index.html" style="color: navy">로그아웃</a>
+            <a href="../session/LogOut.jsp" style="color: navy">로그아웃</a>
         </div>
     </form>
 </nav>
@@ -26,7 +28,7 @@
         <nav class="sb-sidenav accordion sb-sidenav-white" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <a class="nav-link" href="">Play</a>
+                    <a class="nav-link" href="play.jsp" onclick="setPlay()">Play</a>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -36,11 +38,11 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="accnt show.html">계좌 조회</a>
+                            <a class="nav-link" href="accountView.jsp">계좌 조회</a>
                             <a class="nav-link" href="userinf.html">개인정보 조회</a>
                         </nav>
                     </div>
-                    <a class="nav-link" href="send.html">이체</a>
+                    <a class="nav-link" href="send.jsp">이체</a>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                        aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -55,7 +57,7 @@
                             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                  data-bs-parent="#sidenavAccordionPages">
                             </div>
-                            <a class="nav-link" href="deleteId.html">회원 탈퇴</a>
+                            <a class="nav-link" href="deleteAccount.html">회원 탈퇴</a>
                             <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                                  data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -79,8 +81,7 @@
     </div>
     <div id="layoutSidenav_content">
         <main>
-            <div class="play"></div>
-
+            <div id="playArea"></div>
         </main>
 
     </div>
