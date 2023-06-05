@@ -1,0 +1,25 @@
+.text {
+		position: relative;
+    display: block;
+    padding: 16px 17px 14px 40px;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.05);
+    border: solid 1px #bbbbbd;
+    background-color: #fff;
+   	margin: auto;
+   	width : 300px;
+}
+.btn {
+	position: relative;
+	margin-left : 553px;
+	margin-top : 20px;
+	width : 360px;
+	height : 40px;
+}
+.a{
+	position: relative;
+	margin-left : 565px;
+	width : 400px;
+	height : 50px;
+	font-size : 20pt;
+}

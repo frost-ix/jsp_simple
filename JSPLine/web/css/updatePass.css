@@ -1,0 +1,77 @@
+body{ margin: 0; padding: 0; box-sizing: border-box}
+
+.title_Update{
+
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 2px;
+    margin-bottom: 50px;
+    font-size: 20px;
+
+}
+
+.title_Update h3{
+    font-size: 30px;
+}
+
+.main_Update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+form {
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.05);
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+
+
+}
+
+.textAreaPass{
+
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.textAreaPass input {
+
+    width:90%;
+    padding: 20px 5px 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    color: black;
+    outline: none;
+}
+
+.btn-Update{ margin-top : 40px;}
+
+
+.btn-Update button{
+
+    position: absolute;
+    right: 25%;
+    bottom: 5%;
+    width: 50%;
+    height: 50px;
+    background: #0d6efd;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
