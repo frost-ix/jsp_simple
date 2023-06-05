@@ -10,11 +10,11 @@
 
 <!--    <context-param>-->
 <!--        <param-name>OracleURL</param-name>-->
-<!--        <param-value>jdbc:oracle:thin:@175.113.207.94:3152/XE</param-value>-->
+<!--        <param-value>jdbc:oracle:thin:@external/XE</param-value>-->
 <!--    </context-param>-->
     <context-param>
         <param-name>OracleURL</param-name>
-        <param-value>jdbc:oracle:thin:@192.168.35.181:1521/XE</param-value>
+        <param-value>jdbc:oracle:thin:@local/XE</param-value>
     </context-param>
 
     <context-param>
@@ -24,6 +24,6 @@
 
     <context-param>
         <param-name>OraclePwd</param-name>
-        <param-value>hoseo</param-value>
+        <param-value>"password"</param-value>
     </context-param>
 </web-app>
