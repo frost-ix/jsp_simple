@@ -11,18 +11,12 @@
 
 ### Concept
 
-실제 은행권 처럼 제작은 불가능하지만, 묘사라도 내보고자 채택 한 아이디어 입니다.
-
-이 프로젝트의 경우 SPA 형태를 띄고 있습니다.
-
-현재는 작업중에 있습니다.
-
-ip의 경우, 로컬이 아닌 실제 IP & Port를 사용 중 이기 때문에, commit & push 할 때만 삭제 후 진행 됩니다.
+종료 되었습니다.
 
 -----------------------------------
 사용되고 있는 IDE : Intellij Ultimate & Eclipse
 
-- Front : Vue.js & JSTL(EL)
+- Front : Vue.js CDN & Bootstrap
 - Back : JSP (== Java)
 - CSS : Bootstrap5
 - DB : Oracle in Docker
